@@ -24,8 +24,6 @@ func getNextCommands(
 	projectName string,
 ) []string {
 	return []string{
-		"npx create-next-app .",
-		"cd " + projectName,
-		"npm install",
+		"npx create-next-app@latest .",
 	}
 }

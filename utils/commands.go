@@ -14,14 +14,18 @@ import (
 func RunCommands(commands []string) {
 	for _, cmd := range commands {
 		parts := splitCommand(cmd)
-		out, err := exec.Command(parts[0], parts[1:]...).CombinedOutput()
+
+		cmd := exec.Command(parts[0], parts[1:]...)
+
+		cmd.Stdin = os.Stdin
+		cmd.Stdout = os.Stdout
+		cmd.Stderr = os.Stderr
+
+		err := cmd.Run()
 		if err != nil {
 			fmt.Println("Error:", err)
-			fmt.Println("Output:", string(out))
 			os.Exit(1)
 		}
-
-		// TODO: We can show a progress bar here
 	}
 }
 

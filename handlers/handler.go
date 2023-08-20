@@ -13,6 +13,10 @@ func GetHandler(technology string) ProjectHandler {
 		return &ReactHandler{}
 	case "next":
 		return &NextHandler{}
+	case "node":
+		return &NodeHandler{}
+	case "go":
+		return &GoHandler{}
 	default:
 		return nil
 	}

@@ -25,7 +25,5 @@ func getReactCommands(
 ) []string {
 	return []string{
 		"npx create-react-app .",
-		"cd " + projectName,
-		"npm install",
 	}
 }
