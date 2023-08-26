@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	if len(os.Args) == 2 && (os.Args[1] == "--version" || os.Args[1] == "--v") {
+	if len(os.Args) == 2 && (os.Args[1] == "--version" || os.Args[1] == "-v") {
 		handlers.HandleVersion()
 		return
 	}

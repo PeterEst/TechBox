@@ -1,23 +1,12 @@
 package handlers
 
-import (
-	"fmt"
-	"techbox/utils"
-)
-
 type ReactHandler struct{}
 
 func (h ReactHandler) CreateProject(projectName string) {
-	fmt.Println("Creating React project...")
+	commandsGetter := getReactCommands
+	CreateProjectCommon(projectName, "ReactJS", commandsGetter)
 
-	utils.MakeDir(projectName, true)
-
-	// We can add more commands here
-	commands := getReactCommands(projectName)
-
-	utils.RunCommands(commands)
-
-	fmt.Println("React project created!")
+	// ? Additional stuff can be done here
 }
 
 func getReactCommands(

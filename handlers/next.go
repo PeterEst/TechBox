@@ -1,23 +1,12 @@
 package handlers
 
-import (
-	"fmt"
-	"techbox/utils"
-)
-
 type NextHandler struct{}
 
 func (h NextHandler) CreateProject(projectName string) {
-	fmt.Println("Creating React project...")
+	commandsGetter := getNextCommands
+	CreateProjectCommon(projectName, "NextJS", commandsGetter)
 
-	utils.MakeDir(projectName, true)
-
-	// We can add more commands here
-	commands := getNextCommands(projectName)
-
-	utils.RunCommands(commands)
-
-	fmt.Println("Next.JS project created!")
+	// ? Additional stuff can be done here
 }
 
 func getNextCommands(

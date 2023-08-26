@@ -1,22 +1,12 @@
 package handlers
 
-import (
-	"fmt"
-	"techbox/utils"
-)
-
 type NodeHandler struct{}
 
 func (h NodeHandler) CreateProject(projectName string) {
-	fmt.Println("Creating Node project...")
+	commandsGetter := getNodeCommands
+	CreateProjectCommon(projectName, "Node", commandsGetter)
 
-	utils.MakeDir(projectName, true)
-
-	commands := getNodeCommands(projectName)
-
-	utils.RunCommands(commands)
-
-	fmt.Println("Node project created!")
+	// ? Additional stuff can be done here
 }
 
 func getNodeCommands(

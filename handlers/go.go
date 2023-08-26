@@ -1,22 +1,12 @@
 package handlers
 
-import (
-	"fmt"
-	"techbox/utils"
-)
-
 type GoHandler struct{}
 
 func (h GoHandler) CreateProject(projectName string) {
-	fmt.Println("Creating Go project...")
+	commandsGetter := getGoCommands
+	CreateProjectCommon(projectName, "GoLang", commandsGetter)
 
-	utils.MakeDir(projectName, true)
-
-	commands := getGoCommands(projectName)
-
-	utils.RunCommands(commands)
-
-	fmt.Println("Go project created!")
+	// ? Additional stuff can be done here
 }
 
 func getGoCommands(
